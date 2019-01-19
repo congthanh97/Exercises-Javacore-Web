@@ -29,7 +29,7 @@ public class cosX {
             epsilon = pow(x, 2*n) / giaithua(2*n);
             ketqua += pow(-1, n) * epsilon;
             n++; 
-        } while (fabs(epsilon) > c);
+        } while (abs(epsilon) > c);
          
         System.out.printf("\nKet qua tinh theo cong thuc = %10.8lf",ketqua);
       
