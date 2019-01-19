@@ -10,7 +10,7 @@ public class Main {
         String choose = null;
         boolean exit = false;
         ManagerCustomers customersManager = new ManagerCustomers();
-        int studentId;
+        int customersId;
  
         // show menu
         showMenu();
@@ -21,12 +21,12 @@ public class Main {
                 customersManager.add();
                 break;
             case "2":
-                studentId = customersManager.inputId();
-                customersManager.editId(studentId);
+                customersId = customersManager.inputId();
+                customersManager.editId(customersId);
                 break;
             case "3":
-                studentId = customersManager.inputId();
-                customersManager.deleteId(studentId);
+                customersId = customersManager.inputId();
+                customersManager.deleteId(customersId);
                 break;
             case "4":
                 customersManager.Search();
