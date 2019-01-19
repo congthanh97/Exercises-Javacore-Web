@@ -20,9 +20,6 @@ public class cosX {
      
         Scanner scanner = new Scanner(System.in);
          
-        // làm tròn đến 2 chữ số thập phân
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-         
         System.out.printf("Mời bạn nhập vào số n: ");
         n = scanner.nextInt();
         System.out.printf("Mời bạn nhập vào số c: ");
@@ -35,7 +32,6 @@ public class cosX {
         } while (fabs(epsilon) > c);
          
         System.out.printf("\nKet qua tinh theo cong thuc = %10.8lf",ketqua);
-//        System.out.printf("\nKet qua tinh theo ham = %10.8lf", cos(x)); 
       
     }
 
