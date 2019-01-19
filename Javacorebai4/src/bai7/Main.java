@@ -14,7 +14,7 @@ package bai7;
 
 public class Main {
      public static void main(String[] args) {
-        Fraction phanSo1=new Fraction(3,4);    // tạo phân số có tử = 16 và mẫu = 4
+        Fraction phanSo1=new Fraction(3,4);    // tạo phân số có tử = 3 và mẫu = 4
         Fraction phanSo2=new Fraction(4,8); // tạo phân số có tử = 4 và mẫu = 8
          
         // gọi phương thức cộng, trừ, nhân, chia 2 phân số
