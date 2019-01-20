@@ -25,12 +25,12 @@ public class SinXX {
         int i = 0;
         do {
             dif = Math.pow(-1, i) * (Math.pow(xRad, 2*i+1) / factori(2*i+1));
-            sin += dif;
+            sinx += dif;
             i++;
         } while(Math.abs(dif) > ERR);
         
         System.out.println("===========================");
-        System.out.println("sin("+x+") = " + sin);
+        System.out.println("sin("+x+") = " + sinx);
     }
     
     public static long factori(long n) {
