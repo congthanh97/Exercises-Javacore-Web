@@ -29,7 +29,7 @@ public class Main {
                 storeManager.showCamera();
                 break;
             case "4":
-//                storeManager.sortStudentDmTB();
+                storeManager.Search();
                 break;
             case "5":
                 storeManager.DeleteId();
