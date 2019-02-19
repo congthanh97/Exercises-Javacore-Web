@@ -68,6 +68,7 @@ public class Main {
                 case 3:
                     System.out.print("Nhap id: ");
                     int ID =  input.nextInt();
+                    input.nextLine();
                     for (Student SV : list) {
                        if(SV.getId()==ID){
                             System.out.printf("Ten: ");
@@ -84,10 +85,10 @@ public class Main {
                                 System.out.println("Update student not successfull");
                             }       
                        }
-                       else{
-                           System.out.printf("not id %d in list \n",ID);
-                           break;
-                       }
+//                       else{
+//                           System.out.printf("not id %d in list \n",ID);
+//                           break;
+//                       }
                     }
                        
                     break;
