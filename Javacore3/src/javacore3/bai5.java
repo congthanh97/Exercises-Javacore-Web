@@ -36,7 +36,7 @@ public class bai5 {
         z1 = nhap();
     }
     public static void main(String[] args) {
-       Vector1();
+       //Vector1();
         
         
     }
