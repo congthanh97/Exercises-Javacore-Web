@@ -91,9 +91,9 @@ public class bai8 {
 //                }
 //                count++;
 //            }
-            for (int i = 1; i < 4; i++) {
+            for (int i = 0; i < 3; i++) {
                 System.out.printf("%d\n",i);
-                for (int j = i; j < 4; j++) {
+                for (int j = i+1; j < 3; j++) {
                     System.err.printf("%d\n",j);
 //                    if (i == j ) continue;
                     if (matrixA[i][j] != matrixA[j][i]) {
