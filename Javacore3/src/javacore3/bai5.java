@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -29,16 +29,32 @@ public class bai5 {
         }
         return (n);
     }
-    public void Vector1(){
-        int x1,y1,z1;
-        x1 = nhap();
-        y1 = nhap();
-        z1 = nhap();
-    }
+
     public static void main(String[] args) {
-       //Vector1();
-        
-        
+        System.out.println("nhap vector a: ");
+        System.out.printf("X = ");
+        int X1 = nhap();
+        System.out.printf("Y = ");
+        int Y1 = nhap();
+        System.out.printf("Z = ");
+        int Z1 = nhap();
+        System.out.println("Nhap vector b: ");
+        System.out.printf("X = ");
+        int X2 = nhap();
+        System.out.printf("Y = ");
+        int Y2 = nhap();
+        System.out.printf("Z = ");
+        int Z2 = nhap();
+        int x,y,z,X,Y,Z;
+        x = X1 + X2;
+        y = Y1 + Y2;
+        z = Z1 + Z2;
+        X = X1 * X2;
+        Y = Y1 * Y2;
+        Z = Z1 * Z2;
+        System.out.printf("Tong ( %d %d %d )\n",x,y,z);
+        System.out.printf("Tich ( %d %d %d )\n",X,Y,Z);
+
     }
     
 }
