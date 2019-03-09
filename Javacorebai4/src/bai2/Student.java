@@ -65,9 +65,7 @@ public class Student{
     public void setRank(String rank) {
         this.rank = rank;
     }
-        
-    
-    
+       
     public void add(){
         Scanner scanner = new Scanner(System.in);
         boolean flag=false;

@@ -1,4 +1,4 @@
-﻿/*
+/*
  Viết class NhanVien gồm các thuộc tính:
 + Tên
 + Tuổi
