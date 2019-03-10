@@ -98,6 +98,7 @@ public class Mydate {
         }
 
         // 1. Dựa trên hai chữ số đầu tiên của năm, lấy số từ bảng 'thế kỷ'
+        // ma thế ky 1700(4) ,  1800(2) , 1900(0) ,2000(6), 2100(4) , 2200(2), 2300(0);
         int magicCenturyNumber = 6 - 2*((year / 100) % 4);
         
         // 2. Thêm vào hai chữ số cuối của năm.
