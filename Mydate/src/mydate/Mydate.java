@@ -1,9 +1,5 @@
 package mydate;
 
-import java.util.GregorianCalendar;
-import javax.swing.text.html.HTML;
-
-
 public class Mydate {
     private static final int MIN_YEAR  = 1;
     private static final int MAX_YEAR  = 9999;
@@ -18,6 +14,8 @@ public class Mydate {
     private String[] strMonths    = {"Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
     private String[] strDays      = {"Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"};
+    
+    //private String[] weekday      = {"Thu 2", "Thu 3", "Thu 4","Thu 5", "Thu 6", "Thu 7", "Chu nhat"};
     
     private String[] strCan       = {"Canh" , "Tan", "Nham" , "Quy", "Giap" , "At" , "Binh" , "Dinh", "Mau", "Ky"};
     
@@ -82,30 +80,39 @@ public class Mydate {
         this.day = day;
     }
     
-    // day of week
+    //công thưc tính toán thứ trong tuần
+    public int get_day(int year,int month,int day ){
+        int JMD;
+        JMD = (day + ((153 * (month + 12 * ((14 - month) / 12) - 3) + 2) / 5) + (365 * (year + 4800 - ((14 - month) / 12))) +
+          ((year + 4800 - ((14 - month) / 12)) / 4) - 
+          ((year + 4800 - ((14 - month) / 12)) / 100) + 
+          ((year + 4800 - ((14 - month) / 12)) / 400)  - 32045) % 7;
+        return JMD;
+    }
+    
+    //thứ trong tuần.
     public static int getDayOfWeek(int year, int month, int day)
     {
         if (!isValidDate(year, month, day)) {
             return -1;
         }
 
-        // 1. Based on the first two digit of the year, get the number from the "century" table.
+        // 1. Dựa trên hai chữ số đầu tiên của năm, lấy số từ bảng 'thế kỷ'
         int magicCenturyNumber = 6 - 2*((year / 100) % 4);
         
-        
-        // 2. Add to the last two digit of the year.
+        // 2. Thêm vào hai chữ số cuối của năm.
         int lastTwoDigitsOfYear = year % 100;
         
-        // 3. Add to "the last two digit of the year divide by 4, truncate the fractional part".
+        // 3. Thêm vào 'hai chữ số cuối của năm chia cho 4, cắt bớt phần phân số'.
         int magicYearNumber = lastTwoDigitsOfYear / 4;
         
-        // 4. Add to the number obtained from the month table.
+        // 4.Thêm vào số lượng thu được từ bảng tháng.
         int magicMonthNumber = isLeapYear(year) ? leapYearMonthNumbers[month-1] : nonLeapYearMonthNumbers[month-1];
         
-        // 5. Add to the day.
+        // 5. thêm vào số lượng ngày..
         int magicDayNumber = day;
         
-        // 6. The sum modulus 7 gives the day of the week, where 0 for SUN, 1 for MON, ..., 6 for SAT.
+        // 6.Mô-đun tổng 7 cung cấp cho ngày trong tuần, trong đó 0 cho SUN, 1 cho MON, ..., 6 cho SAT.
         return (  magicCenturyNumber + lastTwoDigitsOfYear  + magicYearNumber    + magicMonthNumber + magicDayNumber) % 7; 
     }
     
@@ -129,7 +136,7 @@ public class Mydate {
     
     
     
-      //check is leap Year
+      //kiểm tra năm nhuân.
     public static boolean isLeapYear(int year) {
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
@@ -291,6 +298,7 @@ public class Mydate {
      */
     public String toString() {
         int weekDay = getDayOfWeek(year, month, day);
+       // int weekday =  get_day(year, month, day);
         int yearCan =  getCan(year, month, day);
         int yearChi =  getChi(year, month, day);
         return String.format("%1$s %2$d %3$s %4$d %5$s %6$s", strDays[weekDay], day, strMonths[month-1],year, strCan[yearCan],strChi[yearChi]);
