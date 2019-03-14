@@ -20,7 +20,7 @@ public class Main {
             {
                 case 1:
                 {
-                    System.out.println("Tinh Dien Tich & Chu Vi Hinh Vuong!");
+                    System.out.println("Tinh Dien Tich Elip!");
                    // dahinh dh = new dahinh();
                     Elip elip = new Elip();
                     System.out.print("Nhap vao A: ");
@@ -34,7 +34,7 @@ public class Main {
                 }
                 case 2:
                 {
-                    System.out.println("Tinh Dien Tich & Chu Vi Hinh CN!");
+                    System.out.println("Tinh Dien Tich Circle");
                     circle c = new circle();
                     System.out.printf("Nhap vao ban kinh R: : ");
                     c.setR(ip.nextInt());
