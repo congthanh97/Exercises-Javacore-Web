@@ -8,7 +8,7 @@ create table SACH (
 	ten nvarchar(500) not null, 
 	tacgia nvarchar(500) not null, 
 	nxb nvarchar(500), 
-	soluong int
+	soluong int(100)
 );
 
 drop table if exists DOCGIA;
@@ -78,35 +78,35 @@ where SACH.masach =  PHIEUMUON.masach and DOCGIA.sothe =  PHIEUMUON.sothe and SA
 and PHIEUMUON.ngaymuon = STR_TO_DATE('24/08/2019', '%d/%m/%Y');
 
 #c2 su dung join ket hop hai bang doc gia voi phieu muon and sach voi phieu muon
-select dg.ten from PHIEUMUON as pm
-join DOCGIA as dg on pm.sothe =  dg.sothe
-join SACH   as s  on s.masach = pm.masach
-where s.ten = 'toan' and pm.ngaymuon =  STR_TO_DATE('24/08/2019', '%d/%m/%Y');
+select DG.ten from PHIEUMUON as PM
+join DOCGIA as DG on pm.sothe =  dg.sothe
+join SACH   as s  on s.masach = PM.masach
+where s.ten = 'toan' and PM.ngaymuon =  STR_TO_DATE('24/08/2019', '%d/%m/%Y');
 
 
 #Cau 7Hien thi tên, so the, tên sách cua tat ca đoc gia muon sách trong tháng 8/2019
-select dg.ten, dg.sothe, s.ten from PHIEUMUON as pm
-join DOCGIA as dg on pm.sothe =  dg.sothe
+select DG.ten, DG.sothe, s.ten from PHIEUMUON as PM
+join DOCGIA as DG on pm.sothe =  dg.sothe
 join SACH   as s  on s.masach = pm.masach
-where pm.ngaymuon between STR_TO_DATE('1/08/2019', '%d/%m/%Y') and STR_TO_DATE('31/08/2019', '%d/%m/%Y');
+where PM.ngaymuon between STR_TO_DATE('1/08/2019', '%d/%m/%Y') and STR_TO_DATE('31/08/2019', '%d/%m/%Y');
 
 #Cau 8 Danh sách các sách không ai muon
 select s.ten from SACH as s
 where s.masach not in (select distinct masach from PHIEUMUON);
 
 #9 cho biet doc gia ten anh muong sach bao nhieu lan
-select count(*) as 'so lan ' from PHIEUMUON as pm
-join DOCGIA as dg on dg.sothe =  pm.sothe
-join SACH as s on s.masach = pm.masach
-where dg.ten = 'Bui van cong';
+select count(*) as 'so lan ' from PHIEUMUON as PM
+join DOCGIA as DG on DG.sothe =  PM.sothe
+join SACH as s on s.masach = PM.masach
+where DG.ten = 'Bui van cong';
 
 
 #10Danh sách tên, so the, các đoc gia chua tra sách
 
-select dg.ten ,pm.sothe from phieumuon as pm
-join DOCGIA as dg on dg.sothe =  pm.sothe
-join SACH as s on s.masach = pm.masach
-where pm.ngaytra is null
+select DG.ten ,pm.sothe from phieumuon as PM
+join DOCGIA as DG on dg.sothe =  PM.sothe
+join SACH as s on s.masach = PM.masach
+where PM.ngaytra is null
 
 
 
