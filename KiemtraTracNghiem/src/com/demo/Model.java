@@ -20,7 +20,7 @@ public class Model {
         return rs.next();
     }
 
-    public List<Question> Question() throws Exception {
+    public List<Question> question() throws Exception {
         String chose = null;
         List<Question> list = new ArrayList();
         Scanner input = new Scanner(System.in);
@@ -30,8 +30,7 @@ public class Model {
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
             Question qt = new Question();
-            System.out.println("\n\rId: " + rs.getString(1));
-            System.out.printf("\n\rCau hoi : " + rs.getString(2));
+            System.out.printf("\n\rCau hoi %s: %s",rs.getString(1), rs.getString(2));
             System.out.printf("\n\rA: " + rs.getString(3));
             System.out.printf("\n\rB: " + rs.getString(4));
             System.out.printf("\n\rC: " + rs.getString(5));
@@ -44,7 +43,7 @@ public class Model {
         return list;
     }
 
-    public List<Answer> Answers() throws Exception {
+    public List<Answer> answers() throws Exception {
         Connection conn = DbConnector.getConnection();
         List<Answer> list = new ArrayList<>();
         String sql = "SELECT correct FROM question";
@@ -60,8 +59,8 @@ public class Model {
 
     public void Check() throws Exception {
         int count = 0;
-        List<Question> listCh = Question();
-        List<Answer> listAN = Answers();
+        List<Question> listCh = question();
+        List<Answer> listAN = answers();
         for (int i = 0; i < listAN.size(); i++) {
             if (listCh.get(i).getTl().equals(listAN.get(i).getAns())) {
                 count++;
