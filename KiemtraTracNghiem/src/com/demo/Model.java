@@ -69,7 +69,7 @@ public class Model {
         }
 
         System.out.print("\n\rBan tra loi dung duoc: " + count + " / " + listAN.size());
-        System.out.println("\n\r");
+        System.out.println("\n\r\n\r");
 
     }
 
