@@ -1,0 +1,19 @@
+table{
+    background-color: #808080;
+    margin: auto;
+    width: 200px;
+    height: 150px;
+}
+#Result{
+    width: 200px;
+}
+.btn{
+    width: 34px;
+    height: 34px;
+}
+#numrezo{
+    width: 80px;
+}
+#equ{
+    height: 80px;
+}

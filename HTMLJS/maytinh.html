@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <Style>
+        .btn {
+            width: 50px;
+        }
+    </Style>
+</head>
+
+<body>
+    <h1>Javascript Căn bản</h1>
+    <h2>Máy tính đơn giản</h2>
+    <!-- 1 -->
+    <label for="1">Số thứ 1:</label>
+    <input id="num1" placeholder="0">
+    <input id="" value="+" type="button" class="btn" onclick="calc(1)">
+    <input id="" value="-" type="button" class="btn" onclick="calc(2)"><br>
+
+    <!-- 2 -->
+    <label for="2">Số thứ 2:</label>
+    <input id="num2" placeholder="0">
+    <input id="" value="*" type="button" class="btn" onclick="calc(3)">
+    <input id="" value="/" type="button" class="btn" onclick="calc(4)"><br>
+
+    <!-- 3 -->
+    <label for="3">Kết quả : </label>
+    <input id="Result" placeholder="0">
+
+    <script>
+        function calc(opt) {
+            //alert(opt);
+            var elementA = document.getElementById("num1");
+            //console.log(elementA.value);
+            var elementB = document.getElementById("num2");
+            var elementKq = document.getElementById("Result");
+            var sum = parseFloat(elementA.value) + parseFloat(elementB.value);
+            elementKq.innerText
+            // console.log(elementKq.innerText = sum);
+
+            switch (opt) {
+
+                case 1:
+                    var sum = parseFloat(elementA.value) + parseFloat(elementB.value);
+                    // console.log(sum);
+                    elementKq.innerText = sum;
+                    console.log(elementKq.innerText = sum);
+                    break;
+                case 2:
+
+                    var sign = parseFloat(elementA.value) - parseFloat(elementB.value);
+
+                    // console.log(sum);
+                    elementKq.innerText = sign;
+                    console.log(elementKq.innerText = sign);
+                    break;
+                case 3:
+
+                    var mul = parseFloat(elementA.value) * parseFloat(elementB.value);
+
+                    // console.log(sum);
+                    elementKq.innerText = mul;
+                    console.log(elementKq.innerText = mul);
+                case 4:
+
+                    var div = parseInt(elementA.value) / parseInt(elementB.value);
+
+                    // console.log(sum);
+                    elementKq.innerText = div;
+                    console.log(elementKq.innerText = div);
+
+
+            }
+
+        }
+
+
+        // function myfuntion() {
+        //     var elementA = document.getElementById("numA");
+        //     var elementB = document.getElementById("numB");
+        //     var elementKqsum = document.getElementById("kqsum");
+        //     var elementKqsign = document.getElementById("kqsign");
+        //     var elementKqmul = document.getElementById("kqmul");
+        //     var elementKqdiv = document.getElementById("kqdiv");
+
+        //     //tinh
+        //     var sum = parseFloat(elementA.value) + parseFloat(elementB.value);
+        //     var sign = parseFloat(elementA.value) - parseFloat(elementB.value);
+        //     var mul = parseFloat(elementA.value) * parseFloat(elementB.value);
+        //     var div = parseFloat(elementA.value) / parseFloat(elementB.value);
+
+
+        //     elementKqsum.innerText = sum;
+        //     elementKqsign.innerText = sign;
+        //     elementKqmul.innerText = mul;
+        //     elementKqdiv.innerText = div;
+
+        // }
+
+
+
+    </script>
+</body>
+
+</html>
