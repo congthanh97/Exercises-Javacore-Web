@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 15px;
+        }
+        
+        .left {
+            margin-left: 17px;
+        }
+        
+        input {
+            /* margin-left: 50px; */
+            margin-top: 10px;
+        }
+        
+        #Fullname {
+            margin-left: 10px;
+        }
+        
+        #name {
+            margin-left: 0px;
+        }
+        
+        #password {
+            margin-left: 5px;
+        }
+        
+        .email {
+            margin-left: 35px;
+        }
+        
+        textarea {
+            margin-top: 10px;
+        }
+        
+        .form1 {
+
+            text-align: center;
+        }
+        
+        label {
+            margin-right: 30px;
+        }
+        
+        input , textArea {
+            border-bottom-left-radius: 5%;
+        }
+        
+        h1 {
+            text-align: center
+        }
+        #addr{
+            margin-left: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Register Form</h1>
+        <div class="form1">
+
+            <form action="register" method="POST">
+                <div>
+                    <label for="username">Username: </label>
+                    <input type="text" id="name" name="name"></input>
+                </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input type="password" id="password" name="password"></input>
+                </div>
+                <div>
+                    <label for="Email">Email: </label>
+                    <input type="email" id="email" class="email" name="email"></input>
+                </div>
+                <div>
+                    <label for="Fullname">Fullname: </label>
+                    <input type="text" id="Fullname" name="Fullname" name="fullname"></input>
+                </div>
+                <div>
+                    <label for="Address" id="addr">Address: </label>
+                    <textarea name="address" id="address" cols="25" rows="5" class="left"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Register">
+                    <button>clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
