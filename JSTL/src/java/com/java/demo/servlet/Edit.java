@@ -36,10 +36,12 @@ public class Edit extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
          try (PrintWriter out = response.getWriter()) {
             StudentModel model = new StudentModel();
-            int id = Integer.parseInt(request.getParameter("id"));
-            Student s = model.getById(id);
-            out.print(1);
-            request.setAttribute("edit", s);
+            Student s = new Student();
+            s.setId(Integer.parseInt(request.getParameter("id")));
+            s.setName(request.getParameter("name"));
+            s.setEmail(request.getParameter("email"));
+            s.setAddress(request.getParameter("address"));
+            int rs = model.update(s);
             response.sendRedirect("index.jsp");
         } catch(Exception e) {
             e.printStackTrace();
