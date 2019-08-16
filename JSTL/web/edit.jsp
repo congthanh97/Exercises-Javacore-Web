@@ -36,11 +36,11 @@
                                     <div class="col-md-9">
                                         <h1>Sửa student</h1>
                                         <%
-                            Student edit = new Student();
-                            StudentModel model = new StudentModel();
-                            int id = Integer.parseInt(request.getParameter("id"));
-                            edit = model.getById(id);
-                        %>
+                                                Student edit = new Student();
+                                                StudentModel model = new StudentModel();
+                                                int id = Integer.parseInt(request.getParameter("id"));
+                                                edit = model.getById(id);
+                                            %>
 
                                             <form class="col-md-6" method="Get" action="Edit">
                                                 <div class="form-group">
