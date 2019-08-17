@@ -13,7 +13,7 @@ import java.util.List;
 
 public class NewModel {
 
-    public final static int ROW_PER_PAGE = 2;
+    public final static int ROW_PER_PAGE = 4;
 
     private Connection conn = null;
 
@@ -34,12 +34,12 @@ public class NewModel {
     }
 
     public List<News> getAllPage(int page) throws Exception {
-         List<News> listNew = new ArrayList<>();
+        List<News> listNew = new ArrayList<>();
         String sql = "select news.*, authors.name, authors.email from news join authors on news.author_id = authors.id  LIMIT ?,?";
         PreparedStatement pstmt = this.conn.prepareStatement(sql);
         pstmt.setInt(1, NewModel.ROW_PER_PAGE * (page - 1));//2*(4-1)
         pstmt.setInt(2, NewModel.ROW_PER_PAGE);
-         ResultSet rs = pstmt.executeQuery();
+        ResultSet rs = pstmt.executeQuery();
         while (rs.next()) {
             News news = new News();
             news.setId(rs.getInt("id"));
@@ -52,6 +52,44 @@ public class NewModel {
         }
 
         return listNew;
+    }
+
+    //search
+    public int countsearch(String title) throws Exception {
+        //Connection conn = DBConnector.getConnection();
+        String sql = "SELECT COUNT(*) as 'SUM' FROM news where title = ?";
+        PreparedStatement pstmt = this.conn.prepareStatement(sql);
+        pstmt.setString(1, "%" + title + "%");
+        ResultSet rs = pstmt.executeQuery();
+        int sum = 0;
+        while (rs.next()) {
+            sum = rs.getInt(1);
+        }
+        return sum;
+    }
+
+    public List<News> search(String title,int page) throws Exception {
+        List<News> list = new ArrayList<>();
+        String sql = "select news.*, authors.name, authors.email "
+                + "from news join authors on news.author_id = authors.id "
+                + "where news.title like ? LIMIT ?,?";
+        PreparedStatement pstmt = this.conn.prepareStatement(sql);
+        pstmt.setString(1, "%" + title + "%");
+        pstmt.setInt(2, NewModel.ROW_PER_PAGE * (page - 1));//2*(4-1)
+        pstmt.setInt(3, NewModel.ROW_PER_PAGE);
+        ResultSet rs = pstmt.executeQuery();
+        //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        while (rs.next()) {
+            News news = new News();
+            news.setId(rs.getInt("id"));
+            news.setTitle(rs.getString("title"));
+            news.setContent(rs.getString("content"));
+            news.setSummary(rs.getString("summary"));
+            news.setCreated_at(rs.getString("created_at"));
+            news.setAuthors(new Authors(rs.getInt("author_id"), rs.getString("name"), rs.getString("email")));
+            list.add(news);
+        }
+        return list;
     }
 
     public List<News> getNews() throws Exception {
